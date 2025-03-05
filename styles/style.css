@@ -89,10 +89,26 @@ ol {
   align-items: start;
 }
 
+.search-form__fieldset {
+  border: none;
+}
+
 .search-form__fieldset-title {
   font-weight: 400;
   font-size: 18px;
   line-height: 21.6px;
+}
+
+.search-form__textfield {
+  border-left: 0;
+  border-right: 0;
+  background-color: transparent;
+  opacity: 70%
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  gap: 3.5px;
 }
 
 .content__details {
@@ -154,9 +170,27 @@ ol {
   text-overflow: ellipsis;
 }
 
+.content__video-card-description {
+  line-height: 16.2px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .content__video-card-thumbnail {
   width: 194px;
   height: 103px;
   object-fit: cover;
   object-position: center;
+}
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
