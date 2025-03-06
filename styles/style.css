@@ -91,6 +91,9 @@ ol {
 
 .search-form__fieldset {
   border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .search-form__fieldset-title {
@@ -99,16 +102,53 @@ ol {
   line-height: 21.6px;
 }
 
+.search-form__label {
+  display: flex;
+  width: fit-content;
+}
+
 .search-form__textfield {
-  border-left: 0;
-  border-right: 0;
   background-color: transparent;
-  opacity: 70%
+  color: rgba(255, 255, 255, 0.7);
+  border: solid rgba(255, 255, 255);
+  border-width: 1px 0;
+  font-size: 18px;
+  appearance: none;
+  outline: none
 }
 
 .search-form__checkbox-list {
   display: flex;
-  gap: 3.5px;
+  gap: 15px;
+}
+
+.search-form__checkbox-list .search-form__label {
+  gap: 5px;
+  align-items: center;
+}
+
+.search-form__pseudo-checkbox {
+  border: 1px solid #FFFFFF;
+  width: 19px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  background-color: transparent;
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  padding: 6px 73.5px;
+  font-weight: 700;
+  font-size: 18px;
+  font-family: "Fira Sans Condensed", sans-serif;
+  outline: none;
+}
+
+.search-form__submit-button {
+  align-self: end;
 }
 
 .content__details {
@@ -134,6 +174,8 @@ ol {
 
 .content__list-container {
   max-height: 298px;
+  display: flex;
+  flex-direction: column;
   overflow-y: auto;
   margin-top: 26px;
 }
@@ -144,9 +186,15 @@ ol {
   gap: 30px;
 }
 
+.content__list-item {
+  padding: 0 3px;
+}
+
 .content__card-link {
+  display: block;
+  padding: 1px 0;
   text-decoration: none;
-  color: #FFFFFF
+  color: #FFFFFF;
 }
 
 .content__video-card {
@@ -185,6 +233,11 @@ ol {
   object-position: center;
 }
 
+.more-button {
+  flex-grow: 1;
+  margin-top: 36px;
+}
+
 .visually-hidden {
   position: absolute;
   inline-size: 1px;
@@ -193,4 +246,41 @@ ol {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   white-space: nowrap;
+}
+
+/* Стили состояний */
+
+.search-form__textfield:focus {
+  outline: none;
+}
+
+.search-form__textfield:focus-visible,
+.search-form__label:has(.search-form__checkbox:focus-visible),
+.button:focus-visible {
+  outline: 1px solid #FFFFFF;
+  outline-offset: 1px;
+}
+
+.search-form__checkbox-list .search-form__label:hover,
+.button:hover,
+.content__card-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after,
+.search-form__checkbox-list .search-form__label:active + .search-form__pseudo-checkbox::after {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background-color: #FFFFFF;
+}
+
+.search-form__textfield:active {
+  border-width: 1px;
+}
+
+.button:active,
+.content__card-link_current {
+  background-color: #545050;
 }

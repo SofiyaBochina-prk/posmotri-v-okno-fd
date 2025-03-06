@@ -160,8 +160,7 @@ function appendCards({ baseUrl, dataArray, cardTmp, container }) {
     const node = cardTmp.content.cloneNode(true);
     node.querySelector('a').setAttribute('id', el.id);
     node.querySelector('.content__video-card-title').textContent = el.city;
-    node.querySelector('.content__video-card-description').textContent =
-      el.description + el.description + el.description + el.description + el.description + el.description;
+    node.querySelector('.content__video-card-description').textContent = el.description;
     node
       .querySelector('.content__video-card-thumbnail')
       .setAttribute('src', `${baseUrl}${el.thumbnail.url}`);
